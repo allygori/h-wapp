@@ -83,7 +83,7 @@ const Navbar = ({ className = "" }: Props) => {
           >
             <Container className="mx-auto mb-2 flex h-full w-11/12 flex-wrap items-center justify-between xl:w-10/12">
               <Link
-                href="/"
+                href="/pasang-internet"
                 className="flex items-center space-x-2 rtl:space-x-reverse"
               >
                 <Image

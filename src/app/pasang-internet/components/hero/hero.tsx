@@ -17,6 +17,7 @@ const Hero = ({ className = "" }: Props) => {
     description: "Cocok digunakan untuk maks 3 perangkat",
     devices: 3,
     badge: "Paling Populer",
+    // badge: null,
     price: 265_000,
     package_group: "Paket 1P (Internet)",
     addons: [],
@@ -52,6 +53,7 @@ const Hero = ({ className = "" }: Props) => {
     devices: 10,
     price: 965_000,
     package_group: "Paket 3P (Internet+TV+Phone)",
+    badge: "Paling Lengkap",
     addons: [
       "indihome-tv",
       "disney-hotstar",

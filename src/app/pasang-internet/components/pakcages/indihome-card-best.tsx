@@ -20,11 +20,11 @@ const IndiHomeCardBest = ({
       className={cn(
         className,
         "flex flex-col justify-between",
-        isPrimary ? "h-[21rem] md:h-96" : "h-72 md:h-80",
+        isPrimary ? "h-[21rem] md:h-96" : "h-80 md:h-80",
       )}
     >
       <div className="mb-2 flex flex-row items-center justify-between">
-        <div>
+        <div className="w-7/12">
           {item.badge && (
             <p className="overflow-hidden rounded-br-lg rounded-tl-lg border border-transparent bg-brand-pi-400 px-2 py-0.5 text-2xs font-normal text-white">
               {item.badge}
