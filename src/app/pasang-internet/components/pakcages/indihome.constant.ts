@@ -287,7 +287,7 @@ export const INDIHOMES = [
     package_group: "Paket 2P (Internet+TV)",
     addons: [
       "indihome-tv",
-      "catchplus",
+      "catchplay-plus",
       "vidio",
       "disney-hotstar",
       "wetv-iflix",
@@ -613,7 +613,7 @@ export const INDIHOMES = [
     package_group: "Paket 3P (Internet+TV+Phone)",
     addons: [
       "indihome-tv",
-      "catchplus",
+      "catchplay-plus",
       "vidio",
       "disney-hotstar",
       "wetv-iflix",
@@ -633,7 +633,7 @@ export const INDIHOMES = [
     devices: 5,
     price: 495_000,
     package_group: "Paket 3P (Internet+TV+Phone)",
-    addons: ["indihome-tv", "catchplus", "disney-hotstar", "wetv-iflix"],
+    addons: ["indihome-tv", "catchplay-plus", "disney-hotstar", "wetv-iflix"],
     benefits: [
       "Bebas biaya pasang (Normal Rp500.000)",
       "Kecepatan internet hingga 50 Mbps",
@@ -665,7 +665,7 @@ export const INDIHOMES = [
     package_group: "Paket 3P (Internet+TV+Phone)",
     addons: [
       "indihome-tv",
-      "catchplus",
+      "catchplay-plus",
       "vidio",
       "disney-hotstar",
       "wetv-iflix",
@@ -685,7 +685,7 @@ export const INDIHOMES = [
     devices: 10,
     price: 550_000,
     package_group: "Paket 3P (Internet+TV+Phone)",
-    addons: ["indihome-tv", "catchplus", "disney-hotstar", "wetv-iflix"],
+    addons: ["indihome-tv", "catchplay-plus", "disney-hotstar", "wetv-iflix"],
     benefits: [
       "Bebas biaya pasang (Normal Rp500.000)",
       "Kecepatan internet hingga 100 Mbps",

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/container";
-import { MENUS } from "./menus.constant";
+import { MENUS, type Menu } from "./menus.constant";
 import IconArrowBottom from "@/components/svgs/chevron-down";
 import ImageLogo from "@/public/assets/logo/pasang-internet.svg";
 import NavbarItemMobile from "./navbar-item-mobile";
@@ -66,10 +66,10 @@ const Navbar = ({ className = "" }: Props) => {
               return (
                 <NavbarItemDesktop
                   key={idx}
-                  href={item.href}
-                  scroll={item.scroll}
+                  href={item?.href}
+                  scroll={item?.scroll}
                 >
-                  {item.label}
+                  {item?.label}
                 </NavbarItemDesktop>
               );
             })}
@@ -78,7 +78,7 @@ const Navbar = ({ className = "" }: Props) => {
         {/* nav:mobile */}
         {show_mobile_nav ? (
           <div
-            className="absolute left-0 top-0 min-h-screen w-full bg-brand-200 py-4 md:hidden md:w-auto"
+            className="absolute left-0 top-0 min-h-screen w-full bg-brand-pi-400 py-4 md:hidden md:w-auto"
             id="navbar-dropdown"
           >
             <Container className="mx-auto mb-2 flex h-full w-11/12 flex-wrap items-center justify-between xl:w-10/12">
@@ -88,12 +88,12 @@ const Navbar = ({ className = "" }: Props) => {
               >
                 <Image
                   src={ImageLogo}
-                  alt="Ika Gorden Logo"
+                  alt="Pasang Internet Logo"
                   width={32}
                   height={32}
                 />
-                <span className="ml-0 self-center whitespace-nowrap text-xl font-semibold uppercase text-brand-100 xl:text-2xl">
-                  Ika Gorden
+                <span className="ml-0 self-center whitespace-nowrap text-xl font-semibold uppercase text-white xl:text-2xl">
+                  Pasang Internet
                 </span>
               </Link>
               {/* button:close */}
@@ -112,15 +112,15 @@ const Navbar = ({ className = "" }: Props) => {
 
             <Container className="mx-auto flex h-full w-11/12 flex-col flex-wrap">
               <ul className="m-0 p-0">
-                {MENUS.map((item, idx) => {
+                {MENUS.map((item: Menu, idx) => {
                   return (
                     <NavbarItemMobile
                       key={idx}
-                      href={item.href}
-                      scroll={item.scroll}
+                      href={item?.href}
+                      scroll={item?.scroll}
                       className=""
                     >
-                      {item.label}
+                      {item?.label}
                     </NavbarItemMobile>
                   );
                 })}

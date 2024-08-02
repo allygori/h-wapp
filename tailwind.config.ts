@@ -51,7 +51,11 @@ const config: Config = {
         },
 
         "brand-pi": {
+          300: "#ff3352",
+          350: "#ff1a3c",
           400: "#ff0025",
+          450: "#e60022",
+          500: "#cc001f",
         },
 
         "brand-neutral": {
