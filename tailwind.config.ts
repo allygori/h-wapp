@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "fade-in-down": "fade-in-down 1s ease-in 0.25s 1",
+        "overflay-show": "overlay-show 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "content-show": "content-show 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "content-hide":
+          "100ms cubic-bezier(0.16, 1, 0.3, 1) reverse content-show",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -71,8 +78,41 @@ const config: Config = {
       fontSize: {
         "2xs": ["0.65rem", "0.825rem"],
       },
+      keyframes: {
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translate3d(0, -100%, 0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+        "overlay-show": {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
+        "content-show": {
+          from: {
+            opacity: "0",
+            transform: "translate(-50%, -48%) scale(0.96)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-radix")()],
+  plugins: [
+    require("tailwindcss-radix")(),
+    require("@allygory/with-tailwind")(),
+  ],
 };
 export default config;

@@ -9,7 +9,7 @@ type Props = React.ComponentProps<"input"> & {
   };
 };
 
-const InputText = ({ label = "", co, className = "", ...props }: Props) => {
+const InputNumber = ({ label = "", co, className = "", ...props }: Props) => {
   return (
     <div className={clsx("mb-4 flex w-full flex-col", className)}>
       {label && (
@@ -34,4 +34,4 @@ const InputText = ({ label = "", co, className = "", ...props }: Props) => {
   );
 };
 
-export default InputText;
+export default InputNumber;

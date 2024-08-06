@@ -89,7 +89,7 @@ const Hero = ({ className = "" }: Props) => {
               Pemasangan Baru Internet Unlimited di Pekanbaru dan Sekitarnya
             </span>
           </h1>
-          <span className="bg-brand-2-200 my-3 block h-2 w-4/12 rounded-br rounded-tr" />
+          {/* <span className="bg-brand-2-200 my-3 block h-2 w-4/12 rounded-br rounded-tr" /> */}
           <p className="mb-2 w-full text-center text-sm font-normal text-[#666] md:mb-8 lg:w-8/12 xl:text-lg">
             Terlengkap! Berbagai macam provider, antara lain: IndiHome,
             MyRepublic, Iconnet, Biznet Home, Telkomsel Orbit, Oxygen.id Home,

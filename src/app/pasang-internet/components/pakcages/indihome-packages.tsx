@@ -10,6 +10,7 @@ import groupBy from "@/lib/utils/group-by";
 import priceFormat from "@/lib/utils/price-format";
 import IconFilter from "@/components/svgs/filter";
 import IconFilter2 from "@/components/svgs/filter-2";
+import PackagesFilter from "./packages-filter";
 
 type Props = {
   className?: string;
@@ -27,7 +28,7 @@ const Packages = ({ className = "" }: Props) => {
     <section className={clsx(className, "bg-brand-neutral-150 py-10")}>
       <Container className="w-full px-4 lg:w-10/12">
         {/* <pre>{JSON.stringify(pkg1, null, 2)}</pre> */}
-        <div className="-mx-1 mb-8 flex flex-row">
+        {/* <div className="-mx-1 mb-8 flex flex-row">
           <div className="mx-1 flex flex-none flex-row items-center">
             <IconFilter2 className="h-5 w-5 text-gray-400" />
           </div>
@@ -118,7 +119,8 @@ const Packages = ({ className = "" }: Props) => {
               </Popover.Content>
             </Popover.Root>
           </div>
-        </div>
+        </div> */}
+        {/* <PackagesFilter /> */}
 
         {Object.keys(group).map((key, idx) => {
           return (

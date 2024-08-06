@@ -1,8 +1,11 @@
+import { useState, useContext } from "react";
 import cn from "@/lib/utils/cn";
 import type { Package } from "./indihome.constant";
 import AddOnImage from "./addon-image";
 import IconChevronUp from "@/components/svgs/chevron-up";
 import priceFormat from "@/lib/utils/price-format";
+// import ContactModal from "../modal/contact";
+import { ModalContactContext, type ModalContactContextType } from "../modal";
 
 type Props = {
   item: Package;
@@ -15,6 +18,12 @@ const IndiHomeCardBest = ({
   isPrimary = false,
   className = "",
 }: Props) => {
+  // const context = useContext(ModalContactContext) as ModalContactContextType;
+  const { showModal, setShowModal } = useContext(
+    ModalContactContext,
+  ) as ModalContactContextType;
+  // const [openModal, setOpenModal] = useState(false);
+
   return (
     <div
       className={cn(
@@ -87,11 +96,17 @@ const IndiHomeCardBest = ({
       <div className="flex flex-row items-center justify-between">
         <button
           type="button"
-          className="w-full overflow-hidden rounded-2xl border border-transparent bg-brand-pi-400 px-3 py-2.5 text-sm font-semibold text-white"
+          className="w-full cursor-pointer overflow-hidden rounded-2xl border border-transparent bg-brand-pi-400 px-3 py-2.5 text-sm font-semibold text-white"
+          onClick={() => {
+            console.log("indihome-card-best.tsx Berlanggan button called");
+            setShowModal(true);
+          }}
         >
           Berlangganan
         </button>
       </div>
+
+      {/* <ContactModal open={openModal} /> */}
     </div>
   );
 };
