@@ -23,33 +23,43 @@ const InputBase = forwardRef<InputBaseElement, InputBaseProps>(
     const wrapperClass = cn(
       "overflow-hidden",
       variant === "outline" && "rounded-lg border border-gray-400",
-      props.disabled && "bg-[#F0F0F4] cursor-not-allowed border-[#E5E5EB]",
+      props.disabled &&
+        "bg-[#F0F0F4] cursor-not-allowed border border-gray-300",
     );
 
     const inputClass = cn(
       "w-full focus:outline-none",
       size === "medium" && "px-2 py-2.5",
       props.disabled && "bg-[#F0F0F4] cursor-not-allowed",
+      icon && "border-l border-gray-300",
     );
 
-    const iconWrapperClass = cn("pl-2", props.disabled && "opacity-50");
+    const iconWrapperClass = cn(
+      "pl-3 pr-3 overflow-hidden",
+      props.disabled && "opacity-50",
+    );
 
     return (
-      <div
-        ref={forwardedRef}
-        className={cn("flex flex-row items-center", className, wrapperClass)}
-      >
-        <div className={iconWrapperClass}>{icon ? icon : null}</div>
-        <input
-          type={props.type || "text"}
-          name={props.name}
-          id={props.id}
-          {...props}
+      <div ref={forwardedRef} className={cn("w-full", className)}>
+        <div
           className={cn(
-            // "rounded-lg border border-gray-300 px-2 py-2.5",
-            inputClass,
+            "flex h-full w-full flex-row items-center",
+            wrapperClass,
           )}
-        />
+        >
+          {icon ? <div className={cn(iconWrapperClass)}>{icon}</div> : null}
+          {/* <p className="h-full">+62</p> */}
+          <input
+            type={props.type || "text"}
+            name={props.name}
+            id={props.id}
+            {...props}
+            className={cn(
+              // "rounded-lg border border-gray-300 px-2 py-2.5",
+              inputClass,
+            )}
+          />
+        </div>
       </div>
     );
   },

@@ -23,6 +23,7 @@
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
       "@/context/*": ["./src/context/*"],
+      "@/constants/*": ["./src/constants/*"],
       "@/public/*": ["./public/*"]
     }
   },

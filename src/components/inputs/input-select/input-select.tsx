@@ -25,7 +25,7 @@ const InputSelect = ({
   const wrapperClass = cn(
     "overflow-hidden",
     variant === "outline" && "rounded-lg border border-gray-400",
-    props.disabled && "bg-[#F0F0F4] cursor-not-allowed border-[#E5E5EB]",
+    props.disabled && "bg-[#F0F0F4] cursor-not-allowed border border-gray-300",
   );
 
   const selectClass = cn(

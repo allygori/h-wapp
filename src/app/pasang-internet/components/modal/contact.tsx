@@ -1,17 +1,30 @@
 import clsx from "clsx";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useContext, useEffect, useState } from "react";
 import { InputText2 } from "@/components/inputs/input-text";
+import { InputPhoneNumber2 } from "@/components/inputs/input-phone-number";
 import { InputTextarea } from "@/components/inputs/input-textarea";
 import { InputSelect, InputSelect2 } from "@/components/inputs/input-select";
 // import Select from "@/components/select/select";
 import IconCloseInCircle from "@/components/svgs/close-in-circle";
+import IconWhatsApp from "@/components/svgs/whatsapp";
 import {
   // ModalContactProvider,
   ModalContactContext,
   type ModalContactContextType,
 } from "./";
+import * as ScrollArea from "@radix-ui/react-scroll-area";
+import { PEKANBARU_DISTRICTS } from "@/constants/pekanbaru";
+
+type Inputs = {
+  phone_number: string;
+  city: string;
+  district: string;
+  village: string;
+  address: string;
+  notes?: string;
+};
 
 type Props = {
   open?: boolean;
@@ -27,11 +40,35 @@ const ModalContact = ({
 }: Props) => {
   // const [isOpen, setIsOpen] = useState(false);
   const context = useContext(ModalContactContext) as ModalContactContextType;
+  const {
+    control,
+    register,
+    getValues,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>({
+    defaultValues: {
+      phone_number: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  // useEffect(() => {
+  //   console.log("open:", open);
+  //   console.log("context.showModal:", context.showModal);
+  // }, [open, context.showModal]);
+
+  console.log("form::watch::phone_number", watch("phone_number")); // watch input value by passing the name of it
 
   useEffect(() => {
-    console.log("open:", open);
-    console.log("context.showModal:", context.showModal);
-  }, [open, context.showModal]);
+    console.log("errors: ", errors);
+  }, [errors]);
+
+  useEffect(() => {
+    console.log("getValues::all:", getValues());
+  }, [getValues]);
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
@@ -67,134 +104,264 @@ const ModalContact = ({
             //   : "-top-full left-0",
           )}
         >
-          <Dialog.Title>Title</Dialog.Title>
-          <Dialog.Description>
-            <p>Kami akan menghubungi anda secepatnya</p>
+          <Dialog.Title className="text-base font-bold text-gray-900">
+            Formulir
+          </Dialog.Title>
+          <Dialog.Description className="my-2 text-sm text-gray-600">
+            Kami akan menghubungi untuk menginformasikan ketersediaan layanan
+            Indihome di wilayah Anda secepatnya
           </Dialog.Description>
-          <form action="" className="relative h-full w-full">
-            <InputText2 label="No WhatsApp" />
-            {/* <InputSelect
-              label="Kota"
-              options={[
-                {
-                  text: "Pekanbaru",
-                  value: "pekanbaru",
-                  disabled: true,
-                },
-                {
-                  text: "Pekanbaru 1",
-                  value: "pekanbaru",
-                  disabled: false,
-                },
-                {
-                  text: "Pekanbaru 2",
-                  value: "pekanbaru",
-                  disabled: false,
-                },
-                {
-                  text: "Pekanbaru 3",
-                  value: "pekanbaru",
-                  disabled: false,
-                },
-              ]}
-            /> */}
-            <InputSelect2
-              label="Kota"
-              options={[
-                {
-                  text: "Pekanbaru",
-                  value: "pekanbaru-1",
-                  disabled: true,
-                },
-                {
-                  text: "Pekanbaru 1",
-                  value: "pekanbaru-2",
-                  disabled: false,
-                },
-                {
-                  text: "Pekanbaru 2",
-                  value: "pekanbaru-3",
-                  disabled: false,
-                },
-                {
-                  text: "Pekanbaru 3",
-                  value: "pekanbaru",
-                  disabled: false,
-                },
-              ]}
-            />
+          <ScrollArea.Root type="auto" className="h-[85%] w-full">
+            <ScrollArea.Viewport className="flex h-full w-full flex-col">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="relative mt-4 h-full w-full"
+              >
+                {/* <Controller
+                  name="phone_number"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <InputText2
+                        label="No WhatsApp"
+                        icon={
+                          <IconWhatsApp className="h-5 w-5 text-green-400" />
+                        }
+                        placeholder="+62 812 8888 5555"
+                        required={true}
+                        {...field}
+                      />
+                    );
+                  }}
+                /> */}
 
-            <div className="flex w-full flex-row space-x-2">
-              <InputSelect2
-                label="Kecamatan"
-                className="flex-1"
-                options={[
-                  {
-                    text: "Pekanbaru",
-                    value: "pekanbaru-1",
-                    disabled: true,
-                  },
-                  {
-                    text: "Pekanbaru 1",
-                    value: "pekanbaru-2",
-                    disabled: false,
-                  },
-                  {
-                    text: "Pekanbaru 2",
-                    value: "pekanbaru-3",
-                    disabled: false,
-                  },
-                  {
-                    text: "Pekanbaru 3",
-                    value: "pekanbaru",
-                    disabled: false,
-                  },
-                ]}
-              />
-              <InputSelect2
-                label="Kelurahan"
-                className="flex-1"
-                options={[
-                  {
-                    text: "Pekanbaru",
-                    value: "pekanbaru-1",
-                    disabled: true,
-                  },
-                  {
-                    text: "Pekanbaru 1",
-                    value: "pekanbaru-2",
-                    disabled: false,
-                  },
-                  {
-                    text: "Pekanbaru 2",
-                    value: "pekanbaru-3",
-                    disabled: false,
-                  },
-                  {
-                    text: "Pekanbaru 3",
-                    value: "pekanbaru",
-                    disabled: false,
-                  },
-                ]}
-              />
-            </div>
+                <Controller
+                  name="phone_number"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <InputPhoneNumber2
+                        label="No WhatsApp"
+                        icon={
+                          <IconWhatsApp className="h-5 w-5 text-green-400" />
+                        }
+                        placeholder="+62 812 8888 5555"
+                        required={true}
+                        showMandatoryFlag={true}
+                        {...field}
+                      />
+                    );
+                  }}
+                />
 
-            <InputTextarea label="Alamat" />
+                {/* {errors["phone_number"]?.type === "required" && (
+                  <p role="alert">Wajib diisi</p>
+                )} */}
+                {/* <div>
+                  <InputPhoneNumber2
+                    label="No WhatsApp"
+                    icon={<IconWhatsApp className="h-5 w-5 text-green-400" />}
+                    placeholder="+62 812 8888 5555"
+                    required={true}
+                    showMandatoryFlag={true}
+                    {...register("phone_number", { required: true })}
+                  />
+                  {errors["phone_number"]?.type === "required" && (
+                    <p role="alert">Wajib diisi</p>
+                  )}
+                </div> */}
 
-            <InputTextarea label="Catatan" />
-          </form>
-          <div className="mt-4 flex justify-end">
-            <Dialog.Close
-              className={clsx(
-                "inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium",
-                "bg-green-500 text-white hover:bg-green-600",
-                "border border-transparent",
-                "focus:outline-none",
-              )}
+                <Controller
+                  name="city"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <InputSelect2
+                        label="Kota"
+                        required={true}
+                        showMandatoryFlag={true}
+                        disabled={true}
+                        defaultValue={"pekanbaru"}
+                        options={[
+                          {
+                            text: "Pekanbaru",
+                            value: "pekanbaru",
+                            disabled: true,
+                          },
+                        ]}
+                        {...field}
+                      />
+                    );
+                  }}
+                />
+
+                {/* <InputSelect2
+                  label="Kota"
+                  required={true}
+                  showMandatoryFlag={true}
+                  disabled={true}
+                  defaultValue={"pekanbaru"}
+                  options={[
+                    {
+                      text: "Pekanbaru",
+                      value: "pekanbaru",
+                      disabled: true,
+                    },
+                  ]}
+                  {...register("city")}
+                /> */}
+
+                <div className="flex w-full flex-row space-x-2">
+                  <Controller
+                    name="district"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => {
+                      return (
+                        <InputSelect2
+                          label="Kecamatan"
+                          placeholder="Sukajadi"
+                          className="flex-1"
+                          required={true}
+                          showMandatoryFlag={true}
+                          onValueChange={(val) => field.onChange(val)}
+                          options={PEKANBARU_DISTRICTS.map((district) => {
+                            return {
+                              text: district.name,
+                              value: district.name,
+                              disabled: false,
+                            };
+                          })}
+                          {...field}
+                        />
+                      );
+                    }}
+                  />
+                  {/* <InputSelect2
+                    label="Kecamatan"
+                    placeholder="Sukajadi"
+                    className="flex-1"
+                    required={true}
+                    showMandatoryFlag={true}
+                    options={PEKANBARU_DISTRICTS.map((district, idx) => {
+                      return {
+                        text: district.name,
+                        value: district.name,
+                        disabled: false,
+                      };
+                    })}
+                    {...register("district")}
+                  /> */}
+
+                  <Controller
+                    name="village"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => {
+                      return (
+                        <InputSelect2
+                          label="Kelurahan"
+                          placeholder="Jadirejo"
+                          className="flex-1"
+                          required={true}
+                          showMandatoryFlag={true}
+                          options={PEKANBARU_DISTRICTS.find(
+                            (item) =>
+                              item.name.toLowerCase() === getValues("district"),
+                          )?.villages.map((village) => {
+                            return {
+                              text: village.name,
+                              value: village.name,
+                              disabled: false,
+                            };
+                          })}
+                          // options={PEKANBARU_DISTRICTS.filter((district) => {
+                          //   console.log("getValues", getValues("district"));
+                          //   return (
+                          //     district.name.toLowerCase() ===
+                          //     getValues("district")
+                          //   );
+                          // }).map((district) => {
+                          //   return {
+                          //     text: district.name,
+                          //     value: district.name,
+                          //     disabled: false,
+                          //   };
+                          // })}
+                          {...field}
+                        />
+                      );
+                    }}
+                  />
+
+                  {/* <InputSelect2
+                    label="Kelurahan"
+                    placeholder="Jadirejo"
+                    className="flex-1"
+                    required={true}
+                    showMandatoryFlag={true}
+                    options={[
+                      {
+                        text: "Pekanbaru",
+                        value: "pekanbaru-1",
+                        disabled: true,
+                      },
+                      {
+                        text: "Pekanbaru 1",
+                        value: "pekanbaru-2",
+                        disabled: false,
+                      },
+                      {
+                        text: "Pekanbaru 2",
+                        value: "pekanbaru-3",
+                        disabled: false,
+                      },
+                      {
+                        text: "Pekanbaru 3",
+                        value: "pekanbaru",
+                        disabled: false,
+                      },
+                    ]}
+                    {...register("village")}
+                  /> */}
+                </div>
+
+                <InputTextarea
+                  label="Alamat"
+                  placeholder="Jalan Durian No.39"
+                  required={true}
+                  showMandatoryFlag={true}
+                  {...register("address")}
+                />
+
+                <InputTextarea
+                  label="Catatan"
+                  placeholder="Apakah teknisi bisa datang secepatnya?"
+                  required={false}
+                  showMandatoryFlag={true}
+                  {...register("notes")}
+                />
+              </form>
+              <div className="mt-4 flex justify-end">
+                <Dialog.Close
+                  className={clsx(
+                    "inline-flex select-none justify-center rounded-md px-4 py-2 text-sm font-medium",
+                    "bg-green-500 text-white hover:bg-green-600",
+                    "border border-transparent",
+                    "focus:outline-none",
+                  )}
+                >
+                  Kirim
+                </Dialog.Close>
+              </div>
+            </ScrollArea.Viewport>
+            <ScrollArea.ScrollAreaScrollbar
+              orientation="vertical"
+              className="flex w-1.5 touch-none select-none rounded-md bg-slate-200 p-0.5"
             >
-              Kirim
-            </Dialog.Close>
-          </div>
+              <ScrollArea.ScrollAreaThumb className="relative flex-1 rounded-md bg-slate-500 before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-2 before:w-full before:min-w-4 before:-translate-x-1/2 before:-translate-y-1/2 hover:bg-slate-600" />
+            </ScrollArea.ScrollAreaScrollbar>
+          </ScrollArea.Root>
 
           <Dialog.Close
             className={clsx(
