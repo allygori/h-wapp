@@ -31,7 +31,7 @@ const IndiHomeCard = ({ item, className = "" }: Props) => {
       <div className="mb-2 flex flex-row items-center justify-between">
         <div>
           {item.badge && (
-            <p className="overflow-hidden rounded-br-lg rounded-tl-lg border border-transparent bg-brand-pi-400 px-2 py-0.5 text-2xs font-normal text-white">
+            <p className="text-2xs overflow-hidden rounded-br-lg rounded-tl-lg border border-transparent bg-brand-pi-400 px-2 py-0.5 font-normal text-white">
               {item.badge}
             </p>
           )}
@@ -103,7 +103,7 @@ const IndiHomeCard = ({ item, className = "" }: Props) => {
       {/* {showDetail ? ( */}
       <div
         className={clsx(
-          "absolute top-0 z-10 flex h-full w-full translate-x-0 flex-col justify-between bg-white py-1 transition-all ease-in-out",
+          "absolute top-0 z-10 flex h-full w-full translate-x-0 flex-col justify-between bg-white p-3 transition-all ease-in-out lg:p-4",
           // showDetail ? "translate-x-full" : "-translate-x-full",
           showDetail ? "left-0" : "-left-full -ml-24",
         )}
@@ -119,7 +119,7 @@ const IndiHomeCard = ({ item, className = "" }: Props) => {
                   >
                     <IconCheckCircle className="mr-2 mt-0.5 h-4 w-4 text-brand-pi-400" />
                     <span
-                      className="block"
+                      className="flex flex-1"
                       dangerouslySetInnerHTML={{ __html: benefit }}
                     />
                   </li>

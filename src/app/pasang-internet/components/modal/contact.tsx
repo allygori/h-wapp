@@ -5,7 +5,10 @@ import { useContext, useEffect, useState } from "react";
 import { InputText2 } from "@/components/inputs/input-text";
 import { InputPhoneNumber2 } from "@/components/inputs/input-phone-number";
 import { InputTextarea } from "@/components/inputs/input-textarea";
-import { InputSelect, InputSelect2 } from "@/components/inputs/input-select";
+import {
+  InputSelect2,
+  type OptionItem,
+} from "@/components/inputs/input-select";
 // import Select from "@/components/select/select";
 import IconCloseInCircle from "@/components/svgs/close-in-circle";
 import IconWhatsApp from "@/components/svgs/whatsapp";
@@ -16,6 +19,13 @@ import {
 } from "./";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { PEKANBARU_DISTRICTS } from "@/constants/pekanbaru";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type Inputs = {
   phone_number: string;
@@ -38,7 +48,7 @@ const ModalContact = ({
   closeModal = () => {},
   onOpenChange = () => {},
 }: Props) => {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [villages, setVillages] = useState<OptionItem[] | undefined>([]);
   const context = useContext(ModalContactContext) as ModalContactContextType;
   const {
     control,
@@ -54,6 +64,25 @@ const ModalContact = ({
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  useEffect(() => {
+    const district = watch("district");
+    console.log("district", district);
+    if (district) {
+      const vills = PEKANBARU_DISTRICTS.find(
+        (item) => item.name.toLowerCase() === district,
+      )?.villages.map((village) => {
+        // console.log("village", village);
+        return {
+          text: village.name,
+          value: village.name,
+          disabled: false,
+        };
+      });
+      console.log("vills", vills);
+      setVillages(vills);
+    }
+  }, [watch]);
 
   // useEffect(() => {
   //   console.log("open:", open);
@@ -117,6 +146,17 @@ const ModalContact = ({
                 onSubmit={handleSubmit(onSubmit)}
                 className="relative mt-4 h-full w-full"
               >
+                <Select>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="light">Light</SelectItem>
+                    <SelectItem value="dark">Dark</SelectItem>
+                    <SelectItem value="system">System</SelectItem>
+                  </SelectContent>
+                </Select>
+
                 {/* <Controller
                   name="phone_number"
                   control={control}
@@ -265,16 +305,7 @@ const ModalContact = ({
                           className="flex-1"
                           required={true}
                           showMandatoryFlag={true}
-                          options={PEKANBARU_DISTRICTS.find(
-                            (item) =>
-                              item.name.toLowerCase() === getValues("district"),
-                          )?.villages.map((village) => {
-                            return {
-                              text: village.name,
-                              value: village.name,
-                              disabled: false,
-                            };
-                          })}
+                          options={villages}
                           // options={PEKANBARU_DISTRICTS.filter((district) => {
                           //   console.log("getValues", getValues("district"));
                           //   return (

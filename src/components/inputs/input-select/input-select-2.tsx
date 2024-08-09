@@ -11,8 +11,8 @@ type OptionItem = {
   disabled?: boolean;
 };
 
-type InputSelectElement = HTMLButtonElement;
-type InputSelectProps = Omit<React.ComponentProps<"select">, "size"> & {
+type InputSelect2Element = HTMLButtonElement;
+type InputSelect2Props = Omit<React.ComponentProps<"select">, "size"> & {
   label?: string;
   placeholder?: string;
   options?: OptionItem[];
@@ -25,7 +25,7 @@ type InputSelectProps = Omit<React.ComponentProps<"select">, "size"> & {
   onValueChange?: (value: string) => void | undefined;
 };
 
-const InputSelect2 = forwardRef<InputSelectElement, InputSelectProps>(
+const InputSelect2 = forwardRef<InputSelect2Element, InputSelect2Props>(
   (props, forwardedRef) => {
     const {
       label = "",
@@ -155,7 +155,7 @@ const InputSelect2 = forwardRef<InputSelectElement, InputSelectProps>(
   },
 );
 
-InputSelect2.displayName = "InputSelect";
+InputSelect2.displayName = "InputSelect2";
 
-export type { InputSelectElement, InputSelectProps };
+export type { InputSelect2Element, InputSelect2Props, OptionItem };
 export default InputSelect2;

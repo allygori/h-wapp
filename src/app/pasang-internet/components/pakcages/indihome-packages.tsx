@@ -11,6 +11,13 @@ import priceFormat from "@/lib/utils/price-format";
 import IconFilter from "@/components/svgs/filter";
 import IconFilter2 from "@/components/svgs/filter-2";
 import PackagesFilter from "./packages-filter";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type Props = {
   className?: string;
@@ -124,9 +131,27 @@ const Packages = ({ className = "" }: Props) => {
 
         {Object.keys(group).map((key, idx) => {
           return (
-            <div key={`${key}-${idx}`} className="mb-10 last:mb-0">
+            <div key={`${key}-${idx}`} className="mb-4 last:mb-0">
               <h2 className="mb-4 text-2xl font-bold text-black">{key}</h2>
-              <ul className="m-0 grid grid-cols-1 gap-4 p-0 lg:grid-cols-4 lg:gap-6">
+              <Carousel>
+                <CarouselContent className="-mx-4">
+                  {group[key].map((item, idx) => {
+                    return (
+                      <CarouselItem
+                        key={idx}
+                        className="basis-80 px-4 pb-8 lg:basis-[22rem]"
+                      >
+                        <IndiHomeCard
+                          item={item}
+                          className="overflow-hidden rounded-lg border border-transparent bg-white p-4 shadow-simple"
+                        />
+                      </CarouselItem>
+                    );
+                  })}
+                  {/* <CarouselItem>...</CarouselItem> */}
+                </CarouselContent>
+              </Carousel>
+              {/* <ul className="m-0 grid grid-cols-1 gap-4 p-0 lg:grid-cols-4 lg:gap-6">
                 {group[key].map((item, idx) => {
                   return (
                     <li
@@ -137,7 +162,7 @@ const Packages = ({ className = "" }: Props) => {
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
           );
         })}

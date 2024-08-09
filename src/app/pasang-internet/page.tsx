@@ -8,6 +8,7 @@ import {
   // ModalContactProvider,
   ModalContactContext,
   ModalContact,
+  ModalContact2,
   type ModalContactContextType,
 } from "./components/modal";
 
@@ -35,12 +36,11 @@ const Page = ({}: Props) => {
 
         {/* <ContactModal open={openModal} /> */}
 
-        <ModalContact
+        {/* <ModalContact
           open={showModal}
-          // open={context?.showModal}
-          // closeModal={context?.closeModal}
-        />
-        {/* test */}
+        /> */}
+
+        <ModalContact2 open={showModal} />
       </ModalContactContext.Provider>
     </main>
   );

@@ -1,4 +1,5 @@
 import ModalContact from "./contact";
+import ModalContact2 from "./contact-2";
 import ModalContactContext, {
   // ModalContactProvider,
   type ModalContactContextType,
@@ -6,4 +7,4 @@ import ModalContactContext, {
 
 export type { ModalContactContextType };
 // export { ModalContact, ModalContactContext, ModalContactProvider };
-export { ModalContact, ModalContactContext };
+export { ModalContact, ModalContact2, ModalContactContext };
