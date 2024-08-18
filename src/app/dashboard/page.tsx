@@ -1,11 +1,9 @@
 import clsx from "clsx";
 
-type Props = {
-  className?: string;
-};
+type Props = {};
 
-const DashboardPage = ({ className = "" }: Props) => {
-  return <section className={clsx(className)}>DashboardPage</section>;
+const DashboardPage = ({}: Props) => {
+  return <main>DashboardPage</main>;
 };
 
 export default DashboardPage;

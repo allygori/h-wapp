@@ -6,6 +6,8 @@
     "dev": "next dev -p 3006",
     "build": "next build",
     "start": "next start",
+    "start:pm2": "pm2 start ecosystem.config.js --env production",
+    "deploy:pm2": "next build && npm run start:pm2",
     "lint": "next lint"
   },
   "dependencies": {
@@ -24,6 +26,7 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.5",
     "swiper": "^11.1.9",
     "tailwind-merge": "^2.5.0",
     "tailwindcss-animate": "^1.0.7"

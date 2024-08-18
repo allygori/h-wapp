@@ -1,6 +1,3 @@
-// import ButtonWA from "./button-wa";
-// import ButtonWA1 from "./button-wa-1";
-import ButtonWA from "./button-wa-1";
+import ButtonWA from "./button-wa";
 
-// export { ButtonWA, ButtonWA1 };
 export { ButtonWA };

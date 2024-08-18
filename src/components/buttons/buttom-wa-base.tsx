@@ -1,14 +1,14 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
 import { sendGAEvent } from "@next/third-parties/google";
 import IconWA from "@/svgs/whatsapp-01";
 
-type Props = {
+type ButtonWABaseProps = {
   children?: ReactNode;
   message?: string;
   className?: string;
@@ -25,14 +25,14 @@ type Props = {
   };
 };
 
-const ButtonWA1 = ({
+const ButtonWABase = ({
   children,
   message = "",
   gclidShouldExists = true,
   gtmData,
   className = "",
   classes,
-}: Props) => {
+}: ButtonWABaseProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [link, setLink] = useState("");
@@ -100,26 +100,25 @@ const ButtonWA1 = ({
   };
 
   return (
-    <Suspense>
-      <Link
-        href={link}
-        role="button"
-        className={clsx(
-          "bg-[#25d366] hover:bg-[#03c85d] hover:transition-colors hover:duration-200 hover:ease-in-out active:shadow-inner",
-          "inline-flex flex-row items-center justify-center",
-          "border border-transparent",
-          paddingClass,
-          roundedClass,
-          className,
-        )}
-        onClick={handleSendGAEvent}
-      >
-        {/* bg-[#29af3e] */}
-        <IconWA className={iconClass} />
-        <span className={textClass}>{children}</span>
-      </Link>
-    </Suspense>
+    <Link
+      href={link}
+      role="button"
+      className={clsx(
+        "bg-[#25d366] hover:bg-[#03c85d] hover:transition-colors hover:duration-200 hover:ease-in-out active:shadow-inner",
+        "inline-flex flex-row items-center justify-center",
+        "border border-transparent",
+        paddingClass,
+        roundedClass,
+        className,
+      )}
+      onClick={handleSendGAEvent}
+    >
+      {/* bg-[#29af3e] */}
+      <IconWA className={iconClass} />
+      <span className={textClass}>{children}</span>
+    </Link>
   );
 };
 
-export default ButtonWA1;
+export type { ButtonWABaseProps };
+export default ButtonWABase;
