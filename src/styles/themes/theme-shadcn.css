@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* @layer base {
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -57,46 +53,4 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-} */
-
-/* Your base theme settings */
-@layer base {
-  html {
-    --color-brand-primary: #4285f4;
-    --color-brand-secondary: #34a853;
-    --color-brand-buttons: #fbbc05;
-    --color-brand-typography: #ea4335;
-  }
-}
-
-@import url("../styles/themes/theme-1.css");
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-.debug,
-.debug1 {
-  box-shadow: 0 0 0 4px red;
-}
-
-.debug2 {
-  box-shadow: 0 0 0 3px blue;
-}
-
-.debug3 {
-  box-shadow: 0 0 0 2px lime;
-}
-
-.debug4 {
-  box-shadow: 0 0 0 1px yellow;
-}
-
-.debug5 {
-  box-shadow: 0 0 0 1px aqua;
 }

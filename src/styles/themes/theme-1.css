@@ -1,0 +1,24 @@
+/* html[data-theme="bcf"] {
+  --color-brand-primary-500: #2a44e2;
+  --color-brand-secondary: #a5b2ff;
+  --color-brand-buttons: #8f9fff;
+  --color-brand-typography: #d2d9ff;
+  --color-brand-secondary-400: #ee4a89;
+} */
+
+:root {
+  --color-theme-1-primary-50: #d2d9ff;
+  --color-theme-1-primary-100: #a5b2ff;
+  --color-theme-1-primary-150: #8f9fff;
+  --color-theme-1-primary-300: #7888ed;
+  --color-theme-1-primary-350: #6274ea;
+  --color-theme-1-primary-400: #4b60e7;
+  --color-theme-1-primary-450: #354ce3;
+  --color-theme-1-primary-500: #2a44e2;
+  --color-theme-1-primary-800: #1e306e;
+  --color-theme-1-secondary-500: #ee4a89;
+  /* --color-theme-1-tertiary-500: ; */
+  /* --color-theme-1-quaternary-500: ; */
+  /* --color-theme-1-quinary-500: ; */
+  /* Primary, Secondary, Tertiary, Quaternary, and Quinary */
+}

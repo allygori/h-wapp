@@ -1,11 +1,14 @@
 import type { ElementType, ReactNode } from "react";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 type Props = {
   as?: string;
   children?: ReactNode;
   className?: string;
   autoMargin?: boolean;
+  classes?: {
+    padding?: string;
+  };
 };
 
 const Container = ({
@@ -13,12 +16,18 @@ const Container = ({
   className = "",
   children,
   autoMargin = true,
+  classes = {},
 }: Props) => {
   const Component = as as ElementType;
 
   return (
     <Component
-      className={clsx(className, "container", autoMargin ? "mx-auto" : "")}
+      className={cn(
+        className,
+        "container",
+        autoMargin ? "mx-auto" : "",
+        classes.padding,
+      )}
     >
       {children}
     </Component>

@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -19,28 +21,23 @@ const config = {
     },
     extend: {
       animation: {
-        "fade-in-down": "fade-in-down 1s ease-in 0.25s 1",
-        "overflay-show": "overlay-show 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "content-show": "content-show 500ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "content-hide":
-          "100ms cubic-bezier(0.16, 1, 0.3, 1) reverse content-show",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        jiggle: "jiggle 0.6s ease-in-out 0.25s 1",
+        // Action Sheet
+        "action-sheet-hide": "action-sheet-hide 100ms ease-out forwards",
+        "action-sheet-slide-in-bottom":
+          "action-sheet-slide-in-bottom 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "action-sheet-swipe-out-x":
+          "action-sheet-swipe-out-x 100ms ease-out forwards",
+        "action-sheet-swipe-out-y":
+          "action-sheet-swipe-out-y 300ms ease-out forwards",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gradient-180": "linear-gradient(180deg, var(--tw-gradient-stops))",
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      boxShadow: {
-        simple: "0 10px 30px rgba(0,0,0,.08)",
-      },
+      // borderRadius: {
+      //   lg: "var(--radius)",
+      //   md: "calc(var(--radius) - 2px)",
+      //   sm: "calc(var(--radius) - 4px)",
+      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -76,42 +73,52 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          // 0: "#ffffff",   // 100%
-          50: "#eae7fd", // 95%
-          100: "#d6cffc", // 90%
-          150: "#c1b7fa", // 85%
-          200: "#ada0f8", // 80%
-          250: "#9888f7", // 75%
-          300: "#8470f5", // 70%
-          350: "#6f58f3", // 65%
-          400: "#6950f3", // 63%
-          450: "#5b40f2", // 60%
-          500: "#4628f0", // 55%
-          550: "#3211ee", // 50%
-          600: "#2d0fd7", // 45%
-          650: "#280dbf", // 40%
-          700: "#230ca7", // 35%
-          750: "#1e0a8f", // 30%
-          800: "#190877", // 25%
-          850: "#14075f", // 20%
-          900: "#0f0548", // 15%
-          950: "#0a0330", // 10%
-          1000: "#050218", // 5%
-          // 1050: "#000000", // 0%
+          // primary: "var(--color-brand-primary)",
+          primary: {
+            500: "var(--color-brand-primary-500)",
+          },
+          secondary: "var(--color-brand-secondary)",
+          buttons: "var(--color-brand-buttons)",
+          typography: "var(--color-brand-typography)",
         },
-
-        "brand-pi": {
-          300: "#ff3352",
-          350: "#ff1a3c",
-          400: "#ff0025",
-          450: "#e60022",
-          500: "#cc001f",
+        "theme-1": {
+          primary: {
+            50: "var(--color-theme-1-primary-50)",
+            100: "var(--color-theme-1-primary-100)",
+            150: "var(--color-theme-1-primary-150)",
+            300: "var(--color-theme-1-primary-300)",
+            350: "var(--color-theme-1-primary-350)",
+            400: "var(--color-theme-1-primary-400)",
+            450: "var(--color-theme-1-primary-450)",
+            500: "var(--color-theme-1-primary-500)",
+            800: "var(--color-theme-1-primary-800)",
+          },
+          secondary: {
+            500: "var(--color-theme-1-secondary-500)",
+          },
         },
-
-        "brand-neutral": {
-          100: "#f6f6f6",
-          150: "#f7f8fb",
-        },
+        // brand: {
+        //   10: "#e9fcf3",
+        //   30: "#d3f8e7",
+        //   50: "#bcf5db",
+        //   100: "#a6f2cf",
+        //   150: "##90eec2",
+        //   200: "#7aebb6",
+        //   250: "#64e8aa",
+        //   300: "#4ee49e",
+        //   350: "#37e192",
+        //   400: "#21de86",
+        //   450: "#1ec878",
+        //   500: "#1dbf74",
+        //   600: "#1bb16b",
+        //   700: "#179b5e",
+        //   800: "#148550",
+        //   900: "#116f43",
+        //   1000: "#0d5936",
+        // },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       fontSize: {
         "2xs": ["0.65rem", "0.825rem"],
@@ -125,42 +132,59 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in-down": {
+
+        // Action Sheet
+        "action-sheet-hide": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        "action-sheet-slide-in-bottom": {
+          "0%": { transform: `translateY(calc(100% + 1rem))` },
+          "100%": { transform: "translateY(0)" },
+        },
+        "action-sheet-swipe-out-x": {
           "0%": {
-            opacity: "0",
-            transform: "translate3d(0, -100%, 0)",
+            transform: "translateX(var(--allygory-action-sheet-swipe-end-x))",
           },
           "100%": {
-            opacity: "1",
-            transform: "translate3d(0, 0, 0)",
+            transform: `translateX(calc(100% + 1rem))`,
           },
         },
-        "overlay-show": {
-          from: {
-            opacity: "0",
+        "action-sheet-swipe-out-y": {
+          "0%": {
+            transform: "translateY(var(--allygory-action-sheet-swipe-end-y))",
           },
-          to: {
-            opacity: "1",
+          "100%": {
+            transform: `translateY(calc(100% + 1rem))`,
           },
         },
-        "content-show": {
-          from: {
-            opacity: "0",
-            transform: "translate(-50%, -48%) scale(0.96)",
+        jiggle: {
+          "0%": {
+            transform: "scale3d(1, 1, 1)",
           },
-          to: {
-            opacity: "1",
-            transform: "translate(-50%, -50%) scale(1)",
+          "30%": {
+            transform: "scale3d(1.25, 0.75, 1)",
+          },
+          "40%": {
+            transform: "scale3d(0.75, 1.25, 1)",
+          },
+          "50%": {
+            transform: "scale3d(1.15, 0.85, 1)",
+          },
+          "65%": {
+            transform: "scale3d(0.95, 1.05, 1)",
+          },
+          "75%": {
+            transform: "scale3d(1.05, 0.95, 1)",
+          },
+          "100%": {
+            transform: "scale3d(1, 1, 1)",
           },
         },
       },
-      // animation: {
-      //   "accordion-down": "accordion-down 0.2s ease-out",
-      //   "accordion-up": "accordion-up 0.2s ease-out",
-      // },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@allygory/with-tailwind")],
 } satisfies Config;
 
 export default config;
