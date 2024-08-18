@@ -30,7 +30,7 @@ const Page = () => {
           classes={{ padding: "px-3 md:px-5 pb-4" }}
         >
           <h1 className="m-0 text-sm font-medium">
-            KUNCI SHOCK SOCKET SOK WRENCH MOBIL SET 40 PCS IN 1 ORIGINAL IMPORT
+            KUNCI PASS SHOCK SOCKET WRENCH MOBIL SET 40 PCS IN 1 ORIGINAL IMPORT
           </h1>
         </Container>
       </section>

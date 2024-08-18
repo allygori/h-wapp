@@ -34,12 +34,8 @@ const Images = ({ className = "" }: Props) => {
 
   const mainImagesTotal = mainImages.length;
 
-  const chooseVariantColor = (image: TImage, index: number) => {
-    mainSwiperRef.current?.swiper.slideToLoop(
-      mainImagesTotal + index,
-      500,
-      false,
-    );
+  const chooseThumb = (image: TImage, index: number) => {
+    mainSwiperRef.current?.swiper.slideToLoop(index, 500, false);
   };
 
   const onMainActiveIndexChange = (realIndex: number) => {
@@ -132,8 +128,8 @@ const Images = ({ className = "" }: Props) => {
               className={`${styles["swiper-slide-ovveride"]} px-[0.175rem]`}
             >
               <div
-                className={`aspect-square h-16 w-16 overflow-hidden md:h-20 md:w-20 ${idx === mainRealIndex ? "border-theme-1-primary-500 border" : ""}`}
-                onClick={() => chooseVariantColor(image, idx)}
+                className={`aspect-square h-16 w-16 overflow-hidden md:h-20 md:w-20 ${idx === mainRealIndex ? "border border-theme-1-primary-500" : ""}`}
+                onClick={() => chooseThumb(image, idx)}
               >
                 <Image src={image.src} alt={image.name} className="" />
               </div>

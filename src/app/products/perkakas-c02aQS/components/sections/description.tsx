@@ -16,6 +16,7 @@ import Image03 from "@/public/assets/img/perkakas/images_3576611720306544943.png
 import Image04 from "@/public/assets/img/perkakas/4961431717475226380.jpg";
 import Image05 from "@/public/assets/img/perkakas/a05397b2a2467fc7700e37cdda251ac5.jpeg";
 import Image06 from "@/public/assets/img/perkakas/5adc538d4f2ac50cb01b0d2ee6006135.jpeg";
+import Image07 from "@/public/assets/img/perkakas/hfe56623dfs33.jpg";
 
 type Props = {
   className?: string;
@@ -68,16 +69,43 @@ const Description = ({ className = "" }: Props) => {
 
           <button
             type="button"
-            className="bg-theme-1-primary-500 mx-auto my-4 self-center overflow-hidden rounded-lg border border-transparent px-5 py-3 text-center text-base font-bold text-white"
+            className="mx-auto my-4 self-center overflow-hidden rounded-lg border border-transparent bg-theme-1-primary-500 px-5 py-3 text-center text-base font-bold text-white"
             onClick={scroll}
           >
             Saya Mau
           </button>
 
+          <div className="mt-4">
+            <h2 className="text-left text-base font-semibold">
+              Yang Akan Anda Dapatkan:
+            </h2>
+            <ul>
+              <li>1 buah mata sok 3/8&quot; ukuran 21 mm</li>
+              <li>1 buah sambungan sok 3/8&quot; panjang 3&quot;</li>
+              <li>1 buah sambungan sok 1/4&quot; x 3/8&quot;</li>
+              <li>1 buah disc 3/8&quot;</li>
+              <li>1 buah gagang sok ratchet 3/8&quot;</li>
+              <li>1 buah obeng sok 1/4&quot;</li>
+              <li>
+                14 buah mata sok 1/4&quot; ukuran mm 4 - 4,5 - 5 - 5,5 - 6 - 6,5
+                - 7 - 7,5 - 8 - 9 - 10 - 11 - 12 - 13
+              </li>
+              <li>
+                14 buah mata sok 1/4&quot; ukuran inch 5/32 - 3/16 - 7/32 - 1/4
+                - 9/32 - 5/16 - 11/32 - 3/8 - 13/32 - 7/16 - 15/32 - 1/2 - 17/32
+                - 9/16
+              </li>
+              <li>3 buah mata sok (8 PT) ukuran inch 1/4 - 5/16 - 3/8</li>
+              <li>2 buah mata sok 3/8 ukuran mm 15 - 16 </li>
+              <li>Dilengkapi box plastik</li>
+            </ul>
+          </div>
+
           <div className="mb-4 flex w-full flex-col">
-            <Image src={Image04} alt="Motor mogok 1" />
-            <Image src={Image05} alt="Motor mogok 2" />
-            <Image src={Image06} alt="Mobil mogok 3" />
+            <Image src={Image04} alt="Image 4" />
+            <Image src={Image05} alt="Image 5" />
+            <Image src={Image06} alt="Image 6" />
+            <Image src={Image07} alt="Image 7" />
           </div>
         </div>
         {/* size-guide-table */}
@@ -186,10 +214,10 @@ const Description = ({ className = "" }: Props) => {
             </p>
           </div>
           <div className="mb-4 flex flex-row items-baseline">
-            <span className="text-theme-1-primary-500 text-base font-medium">
+            <span className="text-base font-medium text-theme-1-primary-500">
               Rp
             </span>
-            <span className="text-theme-1-primary-500 text-xl font-medium">
+            <span className="text-xl font-medium text-theme-1-primary-500">
               89.000
             </span>
           </div>
@@ -205,10 +233,10 @@ const Description = ({ className = "" }: Props) => {
             Chat via WhatsApp
           </ButtonWA>
           <div className="mt-4">
-            <p className="text-2xs mb-2 text-center font-medium text-zinc-900">
+            <p className="mb-2 text-center text-2xs font-medium text-zinc-900">
               KLIK TOMBOL DI ATAS
             </p>
-            <p className="text-2xs text-center font-medium text-zinc-900">
+            <p className="text-center text-2xs font-medium text-zinc-900">
               Otomatis akan diarahkan <br /> ke customer service kami via
               WhatsApp
             </p>
@@ -223,7 +251,7 @@ const Description = ({ className = "" }: Props) => {
           </h2>
           <div className="-mx-2 flex flex-row items-center md:-mx-4">
             <div className="mx-2 md:mx-4">
-              <IconShield className="text-theme-1-primary-400 mx-auto h-16 w-16 md:h-24 md:w-24" />
+              <IconShield className="mx-auto h-16 w-16 text-theme-1-primary-400 md:h-24 md:w-24" />
               <h3 className="mb-2 text-center text-sm font-semibold md:text-base">
                 BISA COD
               </h3>
@@ -232,7 +260,7 @@ const Description = ({ className = "" }: Props) => {
               </p>
             </div>
             <div className="mx-2 md:mx-4">
-              <IconCustomerService className="text-theme-1-primary-400 mx-auto h-16 w-16 md:h-24 md:w-24" />
+              <IconCustomerService className="mx-auto h-16 w-16 text-theme-1-primary-400 md:h-24 md:w-24" />
               <h3 className="mb-2 text-center text-sm font-semibold md:text-base">
                 CS Profesional
               </h3>
@@ -241,7 +269,7 @@ const Description = ({ className = "" }: Props) => {
               </p>
             </div>
             <div className="mx-2 md:mx-4">
-              <IconReturn className="text-theme-1-primary-400 mx-auto h-16 w-16 md:h-24 md:w-24" />
+              <IconReturn className="mx-auto h-16 w-16 text-theme-1-primary-400 md:h-24 md:w-24" />
               <h3 className="mb-2 text-center text-sm font-semibold md:text-base">
                 Kemudahan Retur
               </h3>

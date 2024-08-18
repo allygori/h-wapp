@@ -14,10 +14,10 @@ const Price = ({ className = "" }: Props) => {
         <div className="flex flex-row items-center">
           {/* price */}
           <div className="flex flex-row items-baseline">
-            <span className="text-theme-1-primary-500 text-sm font-medium">
+            <span className="text-sm font-medium text-theme-1-primary-500">
               Rp
             </span>
-            <span className="text-theme-1-primary-500 text-lg font-medium">
+            <span className="text-lg font-medium text-theme-1-primary-500">
               89.000
             </span>
           </div>
@@ -28,7 +28,7 @@ const Price = ({ className = "" }: Props) => {
           </div>
         </div>
         <div>
-          <p className="text-xs font-normal">937 Terjual</p>
+          <p className="text-xs font-normal">1.378 Terjual</p>
         </div>
 
         {/* discount precentage */}
