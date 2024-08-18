@@ -34,7 +34,7 @@ const Images = ({ className = "" }: Props) => {
 
   const mainImagesTotal = mainImages.length;
 
-  const chooseThumb = (image: TImage, index: number) => {
+  const chooseThumb = (index: number) => {
     mainSwiperRef.current?.swiper.slideToLoop(index, 500, false);
   };
 
@@ -85,11 +85,11 @@ const Images = ({ className = "" }: Props) => {
         }
         onSlideChange={(swiper) => onMainActiveIndexChange(swiper.realIndex)}
       >
-        {images.map((image, idx) => {
+        {images.map((item, idx) => {
           return (
             <SwiperSlide key={idx}>
               <div className="mx-auto aspect-square w-full">
-                <Image src={image.src} alt={image.name} />
+                <Image src={item.src} alt={item.name} />
               </div>
             </SwiperSlide>
           );
@@ -121,7 +121,11 @@ const Images = ({ className = "" }: Props) => {
         spaceBetween={0}
       >
         {/* {variant.colors.slice(0).map((image, idx) => { */}
-        {images.map((image, idx) => {
+        {images.map((item, idx) => {
+          // if (item.is_video) {
+
+          // }
+
           return (
             <SwiperSlide
               key={idx}
@@ -129,9 +133,9 @@ const Images = ({ className = "" }: Props) => {
             >
               <div
                 className={`aspect-square h-16 w-16 overflow-hidden md:h-20 md:w-20 ${idx === mainRealIndex ? "border border-theme-1-primary-500" : ""}`}
-                onClick={() => chooseThumb(image, idx)}
+                onClick={() => chooseThumb(idx)}
               >
-                <Image src={image.src} alt={image.name} className="" />
+                <Image src={item.src} alt={item.name} className="" />
               </div>
             </SwiperSlide>
           );

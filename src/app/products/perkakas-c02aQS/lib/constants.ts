@@ -19,10 +19,17 @@ import Img05 from "@/public/assets/img/perkakas/8962284b7125b341958f8ef799b021b2
 export type TImage = {
   name: string;
   value: string;
-  src: StaticImageData;
+  src: StaticImageData | string;
+  is_video?: boolean;
 };
 
 export const mainImages: TImage[] = [
+  // {
+  //   name: "Main Video",
+  //   value: "main-video-01",
+  //   src: "videos/snbgq0f820hhlkxh7fwm",
+  //   is_video: true,
+  // },
   { name: "Main", value: "main-01", src: Img01 },
   { name: "Main", value: "main-02", src: Img02 },
   { name: "Main", value: "main-03", src: Img03 },

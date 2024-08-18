@@ -1,7 +1,10 @@
 "use client";
 
+import "next-cloudinary/dist/cld-video-player.css";
 import { useRef } from "react";
 import Image from "next/image";
+import { CldVideoPlayer } from "next-cloudinary";
+
 import Container from "@/components/container";
 import { ButtonWA } from "@/components/buttons";
 import SectionCOD from "./cod";
@@ -42,6 +45,14 @@ const Description = ({ className = "" }: Props) => {
         {/* <h2 className="mb-2 text-sm font-semibold text-black">Deskripsi</h2> */}
         {/* title-short-description */}
         <div className="my-4 flex w-full flex-col">
+          <div className="mx-auto mb-8 flex w-full flex-row items-center justify-center overflow-hidden rounded-md border border-transparent bg-theme-1-primary-50">
+            <CldVideoPlayer
+              width="848"
+              height="480"
+              src="videos/snbgq0f820hhlkxh7fwm"
+            />
+          </div>
+
           <h2 className="mb-2 text-center text-base font-semibold">
             Pernah Liat Orang Yang Ada Dibawah ini? Atau Anda Sendiri Pernah
             Mengalaminya?
