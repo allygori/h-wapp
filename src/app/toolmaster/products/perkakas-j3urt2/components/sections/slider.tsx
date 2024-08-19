@@ -14,7 +14,7 @@ import {
   variant,
   images,
   mainImages,
-} from "@/app/products/perkakas-c02aQS/lib/constants";
+} from "@/app/toolmaster/products/perkakas-ugq06r/lib/constants";
 
 type Props = {
   className?: string | undefined;

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import * as ActionSheet from "@allygory/action-sheet";
-import { variant } from "@/app/products/perkakas-c02aQS/lib/constants";
+import { variant } from "@/app/toolmaster/products/perkakas-ugq06r/lib/constants";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -34,13 +34,13 @@ const CTA = ({ className = "" }: Props) => {
         <ActionSheet.Trigger asChild>
           <button
             role="button"
-            className="bg-theme-1-primary-800 fixed bottom-0 left-0 z-10 flex w-full items-center justify-center border py-3.5 text-base font-medium text-white"
+            className="fixed bottom-0 left-0 z-10 flex w-full items-center justify-center border bg-theme-1-primary-800 py-3.5 text-base font-medium text-white"
           >
             Dapatkan Promonya
           </button>
         </ActionSheet.Trigger>
         <ActionSheet.Portal forceMount={true}>
-          <ActionSheet.Overlay className="allygory-state-closed:px allygory-state-closed:-mx allygory-state-closed:h-1 allygory-state-closed:w-1 allygory-state-closed:border-0 allygory-state-open:opacity-50 fixed inset-0 z-10 bg-black opacity-0 transition-opacity delay-0 duration-700 ease-in-out" />
+          <ActionSheet.Overlay className="allygory-state-closed:px allygory-state-closed:-mx fixed inset-0 z-10 bg-black opacity-0 transition-opacity delay-0 duration-700 ease-in-out allygory-state-closed:h-1 allygory-state-closed:w-1 allygory-state-closed:border-0 allygory-state-open:opacity-50" />
 
           <ActionSheet.Content
             defaultOpen={false}

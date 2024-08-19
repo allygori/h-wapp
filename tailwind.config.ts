@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import Theme2 from "./tailwind/extends/theme-2";
+import { shadesOf } from "./tailwind/utils/shades-of";
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
@@ -86,36 +88,28 @@ const config = {
             50: "var(--color-theme-1-primary-50)",
             100: "var(--color-theme-1-primary-100)",
             150: "var(--color-theme-1-primary-150)",
+            200: "var(--color-theme-1-primary-200)",
             300: "var(--color-theme-1-primary-300)",
             350: "var(--color-theme-1-primary-350)",
             400: "var(--color-theme-1-primary-400)",
             450: "var(--color-theme-1-primary-450)",
             500: "var(--color-theme-1-primary-500)",
+            600: "var(--color-theme-1-primary-600)",
+            700: "var(--color-theme-1-primary-700)",
             800: "var(--color-theme-1-primary-800)",
           },
           secondary: {
             500: "var(--color-theme-1-secondary-500)",
           },
         },
-        // brand: {
-        //   10: "#e9fcf3",
-        //   30: "#d3f8e7",
-        //   50: "#bcf5db",
-        //   100: "#a6f2cf",
-        //   150: "##90eec2",
-        //   200: "#7aebb6",
-        //   250: "#64e8aa",
-        //   300: "#4ee49e",
-        //   350: "#37e192",
-        //   400: "#21de86",
-        //   450: "#1ec878",
-        //   500: "#1dbf74",
-        //   600: "#1bb16b",
-        //   700: "#179b5e",
-        //   800: "#148550",
-        //   900: "#116f43",
-        //   1000: "#0d5936",
-        // },
+        "theme-2": {
+          primary: shadesOf("#fbe264"),
+          secondary: shadesOf("#f6ab1a"),
+          tertiary: shadesOf("#068250"),
+          quaternary: shadesOf("#f16568"),
+          quinary: shadesOf("#d3ad6f"),
+        },
+        // ...Theme2.colors,
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

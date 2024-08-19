@@ -70,6 +70,7 @@
 }
 
 @import url("../styles/themes/theme-1.css");
+@import url("../styles/themes/theme-2.css");
 
 @layer base {
   * {

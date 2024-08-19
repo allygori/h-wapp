@@ -1,0 +1,15 @@
+:root {
+  --color-theme-2-primary-50: #d2d9ff;
+  --color-theme-2-primary-100: #a5b2ff;
+  --color-theme-2-primary-150: #8f9fff;
+  --color-theme-2-primary-300: #7888ed;
+  --color-theme-2-primary-350: #6274ea;
+  --color-theme-2-primary-400: #4b60e7;
+  --color-theme-2-primary-450: #354ce3;
+  --color-theme-2-primary-500: #fbe264;
+  --color-theme-2-primary-800: #1e306e;
+  --color-theme-2-secondary-500: #f6ab1a;
+  --color-theme-2-tertiary-500: #068250;
+  --color-theme-2-quaternary-500: #f16568;
+  --color-theme-2-quinary-500: #d3ad6f;
+}

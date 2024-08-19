@@ -44,12 +44,17 @@ const Description = ({ className = "" }: Props) => {
       >
         {/* <h2 className="mb-2 text-sm font-semibold text-black">Deskripsi</h2> */}
         {/* title-short-description */}
-        <div className="my-4 flex w-full flex-col">
+        <div className="mb-4 flex w-full flex-col">
           <div className="mx-auto mb-8 flex w-full flex-row items-center justify-center overflow-hidden rounded-md border border-transparent bg-theme-1-primary-50">
             <CldVideoPlayer
               width="848"
               height="480"
               src="videos/snbgq0f820hhlkxh7fwm"
+              colors={{
+                accent: "#ff0000",
+                base: "#ff0000",
+                text: "#ffffff",
+              }}
             />
           </div>
 
