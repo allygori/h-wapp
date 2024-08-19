@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/container";
 import SliderImages from "./components/sections/slider";
 import Price from "./components/sections/price";
@@ -8,6 +9,13 @@ import Description from "./components/sections/description";
 // type Props = {
 //   className?: string | undefined;
 // };
+
+export const metadata: Metadata = {
+  title:
+    "Tool Master | Kunci Pas 40 Pcs Multipurpose Combination Socket Wrench Set",
+  description:
+    "Terbaut dari stainless steel murni sehingga sangat kokoh dan tahan lama. Anda juga mendapat kotak untuk menaruh semua set kunci pas ini beserta dengan tangkai pegangannya.",
+};
 
 const Page = () => {
   return (
