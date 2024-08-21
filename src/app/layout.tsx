@@ -1,8 +1,9 @@
-import "./globals.css";
+import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ConfigProvider } from "./components/config";
+import { Toaster } from "@/components/ui/toaster";
 
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <ConfigProvider>{children}</ConfigProvider>
         {/* {children} */}
+        <Toaster />
       </body>
     </html>
   );

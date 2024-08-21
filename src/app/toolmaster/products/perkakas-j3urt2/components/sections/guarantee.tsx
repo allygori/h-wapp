@@ -39,7 +39,7 @@ const Guarantee = ({ className = "" }: Props) => {
             COD Cek Dulu - Bayar ketika sampai
           </p>
         </div>
-        <div className="flex w-full items-start justify-start px-3 py-2 lg:px-2">
+        <div className="flex w-full items-start justify-start px-3 pb-3 pt-2 lg:px-2">
           <div className="mr-2 flex h-5 w-5 items-center justify-center">
             <IconReturn className="h-[1.1rem] w-[1.1rem] text-theme-1-primary-150" />
           </div>

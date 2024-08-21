@@ -22,6 +22,8 @@ import Image05 from "@/public/assets/img/perkakas/a05397b2a2467fc7700e37cdda251a
 import Image06 from "@/public/assets/img/perkakas/5adc538d4f2ac50cb01b0d2ee6006135.jpeg";
 import Image07 from "@/public/assets/img/perkakas/hfe56623dfs33.jpg";
 
+import OrderForm from "../form/order-form";
+
 type Props = {
   className?: string;
 };
@@ -176,7 +178,7 @@ const Description = ({ className = "" }: Props) => {
           className="mb-4 flex flex-col items-center justify-center"
         >
           <p className="mb-4 text-center text-lg font-semibold">
-            Miliki Kunci Pas 40pcs, dengan
+            Miliki Kunci Pas 40 Pcs Multipurpose, dengan harga:
           </p>
           <div className="mx-1 mb-4 flex flex-shrink flex-grow-0 flex-row items-center truncate text-red-500 line-through">
             <span className="text-lg font-light">Rp</span>
@@ -189,10 +191,10 @@ const Description = ({ className = "" }: Props) => {
           <div className="mb-4">
             <p className="text-center text-base font-bold">
               Diskon{" "}
-              <span className="text-theme-2-tertiary-400">
+              <span className="text-green-500">
                 <strong>52%</strong>
               </span>{" "}
-              Dari Harga Awal, Kesempatan Terbatas!
+              dari harga awal, Kesempatan Terbatas!
             </p>
           </div>
           <div className="mb-4 flex flex-row items-baseline">
@@ -204,7 +206,10 @@ const Description = ({ className = "" }: Props) => {
             </span>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex w-full flex-row justify-center">
+          <OrderForm />
+        </div>
+        {/* <div className="flex flex-col items-center justify-center">
           <ButtonWA
             className="bg-brand-100 hover:bg-brand-95 overflow-hidden rounded-lg border border-transparent px-6 py-4 text-center font-medium text-white"
             message="Halo, saya ingin memesan perkakas. Apakah bener mendapat diskon 61%?"
@@ -223,7 +228,7 @@ const Description = ({ className = "" }: Props) => {
               WhatsApp
             </p>
           </div>
-        </div>
+        </div> */}
 
         <SectionCOD />
 
