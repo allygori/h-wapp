@@ -35,6 +35,9 @@ const config = {
         "action-sheet-swipe-out-y":
           "action-sheet-swipe-out-y 300ms ease-out forwards",
       },
+      boxShadow: {
+        simple: "0 10px 30px rgba(0,0,0,.08)",
+      },
       // borderRadius: {
       //   lg: "var(--radius)",
       //   md: "calc(var(--radius) - 2px)",
@@ -77,7 +80,7 @@ const config = {
         brand: {
           // primary: "var(--color-brand-primary)",
           primary: {
-            500: "var(--color-brand-primary-500)",
+            500: "#1dbf74",
           },
           secondary: "var(--color-brand-secondary)",
           buttons: "var(--color-brand-buttons)",

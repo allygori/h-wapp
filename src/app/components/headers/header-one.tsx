@@ -42,14 +42,14 @@ const HeaderOne = ({ className = "" }: Props) => {
       )}
       // style={{ height: header_height }}
     >
-      <Container className="mx-auto flex h-full w-11/12 flex-wrap items-center justify-between xl:w-10/12">
+      <Container className="mx-auto flex h-full w-full flex-wrap items-center justify-between xl:w-10/12">
         <Link
           href="/"
           className="flex items-center space-x-2 rtl:space-x-reverse"
         >
-          <Image src={ImageLogo} alt="Ika Gorden Logo" width={32} height={32} />
-          <span className="ml-0 self-center whitespace-nowrap text-xl font-semibold uppercase text-brand-450 xl:text-2xl">
-            Halaman App
+          <Image src={ImageLogo} alt="Halaman Logo" width={32} height={32} />
+          <span className="text-brand-450 ml-0 self-center whitespace-nowrap text-xl font-semibold uppercase xl:text-2xl">
+            Halaman
           </span>
         </Link>
         <Navbar />

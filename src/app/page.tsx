@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { HeaderOne } from "./components/headers";
+import { Hero } from "./components/sections/hero";
+import { WhyUs } from "./components/sections/why-us";
+import { Pricing } from "./components/sections/pricing";
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -7,9 +10,18 @@ export default function Home() {
   return (
     <>
       {/* header */}
-      {/* <HeaderOne className="overflow-x-hidden" /> */}
+      <HeaderOne className="h-16 overflow-x-hidden" />
       <main className="flex min-h-screen flex-col">
-        {NODE_ENV === "development" ? (
+        {/* section:hero */}
+        <Hero />
+
+        {/* section:why-us */}
+        <WhyUs className="mb-8" />
+
+        {/* section:pricing */}
+        <Pricing className="mb-8" />
+
+        {/* {NODE_ENV === "development" ? (
           <>
             <Link href={`/toolmaster/products/perkakas-ugq06r`}>
               /toolmaster/products/perkakas-ugq06r
@@ -20,7 +32,7 @@ export default function Home() {
           </>
         ) : (
           <p>In Development</p>
-        )}
+        )} */}
 
         {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
